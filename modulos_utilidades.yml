@@ -1,0 +1,17 @@
+- hosts: localhost
+  vars: 
+    - numero: 10
+  tasks:
+    - debug: 
+        msg: "Hostname {{ ansible_hostname}} FQDN {{ ansible_fqdn}}"
+    - command: uptime
+      register: salida
+    - debug: var=salida
+    - pause: prompt=" Verificar salida de arriba" seconds=2
+    - fail: msg="Numero no es 10"
+      when: numero != 10
+    - assert:
+         msg: "Numero tiene que estar entre 0 y 100"
+         that:
+          - numero|int <=100
+          - numero |int> 0

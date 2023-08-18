@@ -1,0 +1,26 @@
+---
+- name: Ejemplos modulo lineinfile
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: Deshabilitar selinux
+    lineinfile: 
+      dest=/etc/selinux/config
+      regexp="^SELINUX=" 
+      line="SELINUX=enabled"
+
+  - name: Eliminar grupo de sudoers
+    lineinfile: 
+      dest=/etc/sudoers
+      state=absent
+      regexp="^sergio2"
+      line="SELINUX=disabled"
+
+  - name: Insertar linea
+    lineinfile: 
+      dest=/etc/hosts
+      state=absent
+      regexp="^sergio"
+      line="SELINUX=disabled"
+
+

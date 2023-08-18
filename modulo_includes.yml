@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+    - include_vars: variables_inc.yml
+    - include_role: name=apache2
+    - debug: 
+        msg: "Hostname {{ ansible_hostname}} FQDN {{ ansible_fqdn}}"
+    - assert:
+         msg: "Numero tiene que estar entre 0 y 100"
+         that:
+          - numero|int <=100
+          - numero |int> 0
+    - pause: prompt="Ver salida" seconds=1

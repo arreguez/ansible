@@ -1,0 +1,11 @@
+---
+- name: Ejemplos de modulo stat
+  hosts: all
+  become: True
+  tasks: 
+  - name: Copiar configuracion de red
+    fetch: 
+      src=/etc/hosts 
+      dest=/tmp/backup/hosts
+      flat=yes
+

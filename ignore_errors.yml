@@ -1,0 +1,17 @@
+---
+- name: Playbook para la clase de register
+  hosts: localhost
+  tasks:
+    - name: cat del archivo 
+      command: cat /etc/hosts22
+      register: salida
+      ignore_errors: True
+
+    - name: Visualizar variable
+      debug: var=salida.stdout_lines
+        #when: salida is success
+      when: salida is not failed
+
+    - name: Visualizar variable2
+      debug: var=salida.stderr_lines
+      when: salida is failed

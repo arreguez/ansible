@@ -1,0 +1,9 @@
+---
+- name: Playbook para la clase de register
+  hosts: localhost
+  tasks:
+    - name: Ejecutar comando uptime
+      command: cat /etc/hosts
+      register: salida
+    - name: Visualizar variable
+      debug: var=salida.stdout_lines

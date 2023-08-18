@@ -1,0 +1,8 @@
+--- 
+- name: Ejemplo modulo shell
+  hosts: all
+  tasks:
+    - shell: uptime >> uptime.log
+      args:
+        chdir: /tmp
+

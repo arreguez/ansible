@@ -1,0 +1,2 @@
+- name: Instalar lftp
+  apt: name=lftp state=latest

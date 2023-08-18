@@ -1,0 +1,12 @@
+---
+- name: Copiar fichero /etc/hoststest a servidores
+  hosts: all
+  user: sergio
+  #check_mode: False
+  tasks:
+    - name: Copiar /etc/hoststest
+      copy: src=/etc/hoststest dest=/etc/hoststest2
+    - name: Copiarr2 /etc/hoststest
+      copy: src=/etc/hoststest dest=/etc/hoststest2
+    - name: Copiar3 /etc/hoststest
+      copy: src=/etc/hoststest dest=/etc/hoststest2

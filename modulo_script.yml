@@ -1,0 +1,6 @@
+--- 
+- name: Ejemplo modulo script
+  hosts: all
+  tasks:
+    - script: /root/playbooks/uname.sh 
+

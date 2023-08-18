@@ -1,0 +1,12 @@
+---
+
+- name: Ejemplos de modulos de ficheros y openssl
+  hosts: localhost
+  become: True
+  tasks: 
+    - name: Instala modulo de ssh requerido
+      apt: name=python3-openssl state=latest
+
+    - name: Generar clave privada
+      openssl_privatekey: 
+        path=/tmp/sergio.pem

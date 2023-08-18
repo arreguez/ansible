@@ -1,0 +1,12 @@
+---
+- name: Ejemplos de modulo stat
+  hosts: localhost
+  become: True
+  tasks: 
+  - name: Ejemplo de uso de stat
+    stat: 
+      path=/etc/services
+    register: datos
+
+  - debug:
+          var=datos.stat.atime

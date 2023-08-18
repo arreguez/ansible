@@ -1,0 +1,8 @@
+---
+
+- name: Ejemplos de modulos de ficheros y openssl
+  hosts: localhost
+  become: True
+  tasks: 
+    - name: Crear fichero con contenido especifico
+      copy: content="Esto es un ejemplo de copy con content\n" dest="/tmp/prueba"

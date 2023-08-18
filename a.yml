@@ -1,0 +1,16 @@
+---
+- name: prueba comandos
+  hosts: all
+  gather_facts: False
+    #become: True
+
+  tasks:
+    - name: Ejecuta raw
+      raw: |
+        echo "Hola mundo"
+        ls -l /tmp
+      register: output
+
+    - name: Muestra salida
+      debug: 
+        var: output.stdout_lines

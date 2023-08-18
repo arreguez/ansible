@@ -1,0 +1,9 @@
+---
+- name: Ejecutar comando para ver failed_when
+  hosts: localhost
+  tasks:
+    - name: Obtener interfaces de red
+      command: ip a
+      register: salida
+      failed_when: "'eth' not in salida.stdout"
+      changed_when: False

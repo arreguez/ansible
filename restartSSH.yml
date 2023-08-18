@@ -1,0 +1,14 @@
+---
+- name: Actualizar configuración de ssh
+  hosts: all
+  #connection: local
+  tasks:
+    - name: Copiar archivo de configuración ssh
+      copy: src=sshd_config dest=/tmp
+      notify: restart_sshd
+
+  handlers:
+    - name: restart_sshd
+      service: name=sshd state=restarted
+...
+

@@ -1,0 +1,9 @@
+--- 
+- name: Unames
+  hosts: all
+  tasks:
+    - expect:
+        command: passwd usuario2
+        responses:
+          (?i)password: "vacaloca"
+

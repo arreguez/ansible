@@ -1,0 +1,7 @@
+---
+- name: Instala curl
+  hosts: all
+  remote_user: sergio
+  become: True
+  tasks:
+    - apt: name=curl state=latest

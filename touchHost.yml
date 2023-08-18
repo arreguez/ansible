@@ -1,0 +1,8 @@
+---
+- name: Copiar fichero /etc/hoststest a servidores
+  hosts: all
+  remote_user: sergio
+  become_user: usuario2
+  tasks:
+    - name: Copiar /etc/hoststest
+      copy: src=/etc/hoststest dest=/tmp/

@@ -1,0 +1,14 @@
+---
+- name: Primer Play
+  hosts: all
+  remote_user: sergio
+  become: True
+  tasks:
+    - name: Instalar Vim
+      apt: name=vim state=latest
+    - include_tasks: instalar_apache2.yml
+
+- name: Segundo Play
+  hosts: all
+  tasks:
+    - include_tasks: segundo_play.yml
